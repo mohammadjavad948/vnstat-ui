@@ -5,7 +5,16 @@ import './App.css';
 function App() {
 
   useEffect(() => {
-
+    //@ts-ignore
+    window.api.interfaces()
+        .then((data: any) => {
+          console.log(data);
+          let nd = data.split(' ');
+          nd.splice(0, 2)
+          nd.splice(nd.length - 1, 1)
+          console.log(nd)
+        })
+        .catch(console.log)
   }, []);
 
   return (
