@@ -23,14 +23,14 @@ contextBridge.exposeInMainWorld(
                 ipcRenderer.on(channel, (event, ...args) => func(...args));
             }
         },
-        check: Check
+        interfaces: Check
     }
 );
 
 function Check(){
 
     return new Promise((resolve, reject) => {
-        const vn = spawn('vnstat', ['--version']);
+        const vn = spawn('vnstat', ['--iflist']);
 
         let Alld = '';
 
