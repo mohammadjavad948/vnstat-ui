@@ -23,9 +23,35 @@ contextBridge.exposeInMainWorld(
                 ipcRenderer.on(channel, (event, ...args) => func(...args));
             }
         },
-        interfaces: Check
+        interfaces: Check,
+        getData: getData
     }
 );
+
+function getData(options){
+
+    return new Promise((resolve, reject) => {
+        const vn = spawn('vnstat', [...options, '--json']);
+
+        let Alld = '';
+
+        vn.stdout.on('data', (data) => {
+            Alld += data
+        });
+
+        vn.stderr.on('data', (data) => {
+            reject(data)
+        });
+
+        vn.on('close', (code) => {
+            if (code === 0){
+                resolve(JSON.parse(Alld));
+            } else {
+                reject('something wrong happened')
+            }
+        })
+    });
+}
 
 function Check(){
 
