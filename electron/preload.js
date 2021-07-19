@@ -31,7 +31,10 @@ contextBridge.exposeInMainWorld(
 function getData(options){
 
     return new Promise((resolve, reject) => {
-        const vn = spawn('vnstat', [...options, '--json']);
+
+        options.push('--json');
+
+        const vn = spawn('vnstat', options);
 
         let Alld = '';
 
