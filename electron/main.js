@@ -15,7 +15,7 @@ const createWindow = () => {
         height: 600,
         width: 800,
         webPreferences: {
-            preload: './preload.js'
+            preload: __dirname + '/preload.js'
         }
     });
 
