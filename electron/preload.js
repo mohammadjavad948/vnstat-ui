@@ -32,12 +32,22 @@ function Check(){
     return new Promise((resolve, reject) => {
         const vn = spawn('vnstat', ['--version']);
 
+        let Alld = '';
+
         vn.stdout.on('data', (data) => {
-            resolve(data);
+            Alld += data
         });
 
         vn.stderr.on('data', (data) => {
             reject(data)
         });
+
+        vn.on('close', (code) => {
+            if (code === 0){
+                resolve(Alld);
+            } else {
+                reject('something wrong happened')
+            }
+        })
     });
 }
