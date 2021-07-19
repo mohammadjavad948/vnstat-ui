@@ -3,6 +3,8 @@ const {
     ipcRenderer
 } = require("electron");
 
+const { spawn } = require('child_process');
+
 // Expose protected methods that allow the renderer process to use
 // the ipcRenderer without exposing the entire object
 contextBridge.exposeInMainWorld(
@@ -20,6 +22,22 @@ contextBridge.exposeInMainWorld(
                 // Deliberately strip event as it includes `sender`
                 ipcRenderer.on(channel, (event, ...args) => func(...args));
             }
-        }
+        },
+        check: Check
     }
 );
+
+function Check(){
+
+    return new Promise((resolve, reject) => {
+        const vn = spawn('vnstat', ['--version']);
+
+        vn.stdout.on('data', (data) => {
+            resolve(data);
+        });
+
+        vn.stderr.on('data', (data) => {
+            reject(data)
+        });
+    });
+}
