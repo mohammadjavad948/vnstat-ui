@@ -14,7 +14,14 @@ function App() {
           nd.splice(nd.length - 1, 1)
           console.log(nd)
         })
-        .catch(console.log)
+        .catch(console.log);
+
+      //@ts-ignore
+    window.api.getData(['-i', 'wlp2s0'])
+          .then((data: any) => {
+              console.log(data);
+          })
+          .catch(console.log)
   }, []);
 
   return (
