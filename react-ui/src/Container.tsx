@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {getInterfaces} from "./api/vnstat";
+import {getData, getInterfaces} from "./api/vnstat";
 import {useInterfaceStore} from "./store/interfaceStore";
 
 export default function Container(){
@@ -10,11 +10,16 @@ export default function Container(){
 
         const interfaces = await getInterfaces();
 
-        const inter = interfaces.split(' ').splice(0, 2);
+        const inter = interfaces.split(' ');
+
+        inter.splice(0, 2);
         inter.splice(inter.length - 1, 1);
 
         setInterfaces(inter);
 
+        console.log(inter);
+
+        console.log(await getData(['-i', 'wlp2s0']))
         if (!inter.includes(selected)){
             setSelected(inter[0]);
         }
