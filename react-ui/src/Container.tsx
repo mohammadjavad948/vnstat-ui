@@ -1,6 +1,7 @@
 import {useEffect} from "react";
 import {getData, getInterfaces} from "./api/vnstat";
 import {useInterfaceStore} from "./store/interfaceStore";
+import Sidebar from "./component/sidebar/Sidebar";
 
 export default function Container(){
 
@@ -32,7 +33,7 @@ export default function Container(){
 
     return (
         <div>
-
+            <Sidebar />
         </div>
     )
 }
