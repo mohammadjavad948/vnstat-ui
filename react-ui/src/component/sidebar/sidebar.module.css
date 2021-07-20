@@ -1,3 +1,11 @@
 .sidebar{
-
+    background-color: var(--background);
+    box-shadow: 0 0 5px var(--shadow-color);
+    width: 50px;
+    padding: 0 8px;
+    height: 100vh;
+    border-radius: 10px;
+    position: sticky;
+    left: 0;
+    top: 0;
 }
