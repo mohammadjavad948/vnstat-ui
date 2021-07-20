@@ -1,4 +1,4 @@
-import {VnstatI} from "./type/response";
+import {VnstatI} from "./response";
 
 
 declare global {
