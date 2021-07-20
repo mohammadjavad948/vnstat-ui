@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import './App.css';
+import YouAreNotRunningOnElectron from "./component/YouAreNotRunningOnElectron";
 
 function App() {
 
@@ -8,8 +9,8 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-
+    <div>
+      <YouAreNotRunningOnElectron />
     </div>
   );
 }
