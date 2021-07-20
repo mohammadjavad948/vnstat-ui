@@ -8,11 +8,13 @@ export default function YouAreNotRunningOnElectron(){
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            backgroundColor: '#1c2028'
         }}>
             <span style={{
-                fontSize: '18px'
+                fontSize: '18px',
+                color: 'white',
             }}>
-                You are not running the app on electron.
+                You are not running the app on electron :(
             </span>
         </div>
     )
