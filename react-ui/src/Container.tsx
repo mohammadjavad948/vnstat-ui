@@ -14,10 +14,15 @@ export default function Container(){
         inter.splice(inter.length - 1, 1);
 
         setInterfaces(inter);
+
+        if (!inter.includes(selected)){
+            setSelected(inter[0]);
+        }
+
     }
 
     useEffect(() => {
-
+        init();
     }, []);
 
     return (
