@@ -5,8 +5,9 @@ import './App.css';
 function App() {
 
   useEffect(() => {
-    //@ts-ignore
-    window.api.interfaces()
+
+    // @ts-ignore
+      window.api.interfaces()
         .then((data: any) => {
           console.log(data);
           let nd = data.split(' ');
@@ -18,7 +19,7 @@ function App() {
 
       //@ts-ignore
     window.api.getData(['-i', 'wlp2s0'])
-          .then((data: any) => {
+          .then((data) => {
               console.log(data);
           })
           .catch(console.log)
