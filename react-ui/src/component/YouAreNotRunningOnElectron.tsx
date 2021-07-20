@@ -11,10 +11,11 @@ export default function YouAreNotRunningOnElectron(){
             backgroundColor: '#1c2028'
         }}>
             <span style={{
-                fontSize: '18px',
+                fontSize: '22px',
                 color: 'white',
+                fontWeight: 700,
             }}>
-                You are not running the app on electron :(
+                You are not running the app on electron 😕
             </span>
         </div>
     )
