@@ -1,8 +1,11 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import YouAreNotRunningOnElectron from "./component/YouAreNotRunningOnElectron";
+import {useIsElectron} from "./hooks/electron";
 
 function App() {
+
+  const isElectron = useIsElectron();
 
   useEffect(() => {
 
@@ -10,7 +13,7 @@ function App() {
 
   return (
     <div>
-      <YouAreNotRunningOnElectron />
+      {!isElectron && <YouAreNotRunningOnElectron />}
     </div>
   );
 }
