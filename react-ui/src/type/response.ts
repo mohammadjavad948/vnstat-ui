@@ -19,6 +19,10 @@ export interface Interfaces {
 
 export interface Traffic{
     day: DayTraffic[]
+    total: {
+        rx: number
+        tx: number
+    }
 }
 
 export interface DayTraffic{
