@@ -18,11 +18,16 @@ const createWindow = () => {
             preload: __dirname + '/preload.js',
             nodeIntegration: false,
             contextIsolation: true,
-        }
+        },
+        minHeight: 400,
+        minWidth: 600,
+        frame: false
     });
 
     // and load the index.html of the app.
     mainWindow.loadURL('http://localhost:3000');
+
+    mainWindow.removeMenu();
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
