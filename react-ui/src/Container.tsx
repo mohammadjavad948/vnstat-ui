@@ -2,10 +2,12 @@ import {useEffect} from "react";
 import {getData, getInterfaces} from "./api/vnstat";
 import {useInterfaceStore} from "./store/interfaceStore";
 import Sidebar from "./component/sidebar/Sidebar";
+import {useDataStore} from "./store/dataStore";
 
 export default function Container(){
 
     const {setInterfaces, setSelected, selected} = useInterfaceStore();
+    const {setData} = useDataStore();
 
     async function init(){
 
@@ -18,13 +20,13 @@ export default function Container(){
 
         setInterfaces(inter);
 
-        console.log(inter);
-
-        console.log(await getData(['-i', 'wlp2s0']))
         if (!inter.includes(selected)){
             setSelected(inter[0]);
         }
 
+        const data = await getData(['-i', selected]);
+
+        setData(data);
     }
 
     useEffect(() => {
