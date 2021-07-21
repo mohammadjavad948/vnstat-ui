@@ -2,7 +2,7 @@
     background-color: var(--background);
     box-shadow: 0 0 5px var(--shadow-color);
     width: 50px;
-    padding: 0 8px;
+    padding: 0 5px;
     height: 100vh;
     border-radius: 10px;
     position: sticky;
@@ -17,5 +17,11 @@
 .items{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 3px;
+}
+
+.text{
+    color: var(--text-color);
+    font-size: 12px;
+    margin-bottom: 15px;
 }
