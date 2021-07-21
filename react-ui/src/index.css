@@ -1,7 +1,13 @@
 :root{
   --background: #ffffff;
   --shadow-color: #a5a5a5;
-  --text-color: #000000
+  --text-color: #000000;
+}
+
+.dark{
+  --background: #242424;
+  --shadow-color: #6d6d6d;
+  --text-color: #ffffff;
 }
 
 body {
