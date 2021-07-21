@@ -31,7 +31,8 @@ export default function Container(){
 
     useEffect(() => {
         init();
-    }, []);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selected]);
 
     return (
         <div>
