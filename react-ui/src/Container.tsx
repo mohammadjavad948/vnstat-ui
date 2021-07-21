@@ -3,6 +3,7 @@ import {getData, getInterfaces} from "./api/vnstat";
 import {useInterfaceStore} from "./store/interfaceStore";
 import Sidebar from "./component/sidebar/Sidebar";
 import {useDataStore} from "./store/dataStore";
+import style from './container.module.css';
 
 export default function Container(){
 
@@ -37,7 +38,7 @@ export default function Container(){
     }, [selected]);
 
     return (
-        <div>
+        <div className={style.container}>
             <Sidebar />
         </div>
     )
