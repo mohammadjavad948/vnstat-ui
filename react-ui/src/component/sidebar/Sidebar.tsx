@@ -8,8 +8,11 @@ export default function Sidebar(){
 
     return (
         <div className={style.sidebar}>
-            <div>
-                {PrettyByte(data?.interfaces[0]?.traffic?.total?.rx || 0)}
+            <div className={style.items}>
+
+            </div>
+            <div className={style.items}>
+
             </div>
         </div>
     )

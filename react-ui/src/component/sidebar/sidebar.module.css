@@ -13,3 +13,9 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.items{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
