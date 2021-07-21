@@ -9,7 +9,13 @@ interface DataI{
 // @ts-ignore
 export const useDataStore = create<DataI>((set) => {
     return {
-        data: {},
+        data: {
+            interfaces: [
+                {
+
+                }
+            ]
+        },
         setData: (data) => {
             set({data});
         }
