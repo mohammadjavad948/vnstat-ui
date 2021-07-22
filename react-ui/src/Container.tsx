@@ -29,8 +29,6 @@ export default function Container(){
 
         const data = await getData(['-i', selected]);
 
-        console.log(data);
-
         setData(data);
     }
 
