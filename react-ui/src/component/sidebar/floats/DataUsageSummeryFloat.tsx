@@ -1,4 +1,5 @@
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import Float from "../../float/Float";
 import style from './sum.module.css';
 
@@ -26,7 +27,7 @@ export default function DataUsageSummeryFloat(props: DataUsageI){
                         1.5GB
                     </div>
                     <div className={`${style.data} ${style.red}`}>
-                        <ExpandMoreIcon />
+                        <ExpandLessIcon />
                         1.5GB
                     </div>
                 </Float>
