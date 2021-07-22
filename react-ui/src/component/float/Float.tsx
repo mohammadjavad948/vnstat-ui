@@ -52,6 +52,7 @@ export default function Float(props: Props){
 
         }
 
+        // eslint-disable-next-line
     }, [bounds]);
 
     useEffect(() => {
@@ -61,6 +62,8 @@ export default function Float(props: Props){
         return () => {
             document.removeEventListener("mousedown", handleClick);
         };
+
+        // eslint-disable-next-line
     }, [])
 
     return (
