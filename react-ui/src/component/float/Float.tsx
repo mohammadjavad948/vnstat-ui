@@ -63,7 +63,15 @@ export default function Float(props: Props){
     }, [bounds]);
 
     return (
-        <div ref={mergeRefs([ref, node])} className={style.container} style={{top: top, left: left}}>
+        <div
+            ref={mergeRefs([ref, node])}
+            className={style.container}
+            style={{
+                top: top,
+                left: left,
+                opacity: (top === 0 && left === 0) ? 0 : 1
+            }}
+        >
             {props.children}
         </div>
     )
