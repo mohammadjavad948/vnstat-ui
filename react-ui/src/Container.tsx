@@ -38,7 +38,11 @@ export default function Container(){
         init();
 
         const interval = setInterval(() => {
+
+            console.log('updating');
+
             init();
+
         }, 5 * 60 * 1000)
 
         setUpdateInterval(interval);
