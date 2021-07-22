@@ -1,6 +1,6 @@
 import style from './topbar.module.css';
 import CloseIcon from '@material-ui/icons/Close';
-import Crop169Icon from '@material-ui/icons/Crop169';
+import CropDinIcon from '@material-ui/icons/CropDin';
 import MinimizeIcon from '@material-ui/icons/Minimize';
 
 export default function TopBar(){
@@ -11,13 +11,13 @@ export default function TopBar(){
 
             </div>
             <div className={style.icons}>
-                <div>
+                <div className={style.ic}>
                     <MinimizeIcon />
                 </div>
-                <div>
-                    <Crop169Icon />
+                <div className={style.ic}>
+                    <CropDinIcon />
                 </div>
-                <div>
+                <div className={style.ic}>
                     <CloseIcon />
                 </div>
             </div>

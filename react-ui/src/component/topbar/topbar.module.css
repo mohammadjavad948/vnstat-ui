@@ -20,3 +20,13 @@
     justify-content: center;
     -webkit-app-region: no-drag;
 }
+
+.ic{}
+
+.ic:hover{
+    background-color: #cecece;
+}
+
+.icon{
+
+}
