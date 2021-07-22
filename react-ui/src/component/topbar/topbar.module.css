@@ -21,12 +21,18 @@
     -webkit-app-region: no-drag;
 }
 
-.ic{}
+.ic{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .ic:hover{
     background-color: #cecece;
 }
 
 .icon{
-
+    width: 18px;
 }

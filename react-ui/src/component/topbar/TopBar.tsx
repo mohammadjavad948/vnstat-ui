@@ -12,13 +12,13 @@ export default function TopBar(){
             </div>
             <div className={style.icons}>
                 <div className={style.ic}>
-                    <MinimizeIcon />
+                    <MinimizeIcon className={style.icon} />
                 </div>
                 <div className={style.ic}>
-                    <CropDinIcon />
+                    <CropDinIcon className={style.icon} />
                 </div>
                 <div className={style.ic}>
-                    <CloseIcon />
+                    <CloseIcon className={style.icon} />
                 </div>
             </div>
         </div>
