@@ -36,7 +36,7 @@ export default function Sidebar(){
                 </IconButton>
             </div>
             {floatData.show && (
-                <Float top={floatData.y} left={floatData.x} side={'right'}>
+                <Float top={floatData.y} left={floatData.x} side={'right'} hideFn={hiderFn}>
                     khobe?
                 </Float>
             )}

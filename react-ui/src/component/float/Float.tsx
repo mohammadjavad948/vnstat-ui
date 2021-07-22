@@ -1,12 +1,14 @@
 import style from './float.module.css';
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import useMeasure from "react-use-measure";
+import mergeRefs from "react-merge-refs";
 
 interface Props{
     left: number
     top: number
     side: 'right' | 'left' | 'top' | 'bottom'
     children: JSX.Element | string
+    hideFn: () => void
 }
 
 export default function Float(props: Props){
@@ -15,6 +17,19 @@ export default function Float(props: Props){
     const [top, setTop] = useState(0);
 
     const [ref, bounds] = useMeasure();
+
+    const node = useRef() as any;
+
+    const handleClick = (e: any) => {
+        // @ts-ignore
+        if (node.current.contains(e.target)) {
+            // inside click
+            return;
+        }
+
+        // outside click
+        props.hideFn();
+    };
 
     useEffect(() => {
 
@@ -37,10 +52,18 @@ export default function Float(props: Props){
 
         }
 
+
+        // add when mounted
+        document.addEventListener("mousedown", handleClick);
+        // return function to be called when unmounted
+        return () => {
+            document.removeEventListener("mousedown", handleClick);
+        };
+
     }, [bounds]);
 
     return (
-        <div ref={ref} className={style.container} style={{top: top, left: left}}>
+        <div ref={mergeRefs([ref, node])} className={style.container} style={{top: top, left: left}}>
             {props.children}
         </div>
     )
