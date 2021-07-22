@@ -32,7 +32,7 @@ export default function Sidebar(){
                     <WifiIcon />
                 </IconButton>
             </div>
-            <Float>
+            <Float top={20} left={20} side={'right'}>
                 khobe?
             </Float>
         </div>

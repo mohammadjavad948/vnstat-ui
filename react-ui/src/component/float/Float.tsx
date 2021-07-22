@@ -1,4 +1,6 @@
 import style from './float.module.css';
+import {useEffect, useState} from "react";
+import useMeasure from "react-use-measure";
 
 interface Props{
     left: number
@@ -9,8 +11,38 @@ interface Props{
 
 export default function Float(props: Props){
 
+    const [left, setLeft] = useState(0);
+    const [top, setTop] = useState(0);
+
+    const [ref, bounds] = useMeasure();
+
+    useEffect(() => {
+
+        console.log(bounds)
+
+        const wh = window.innerHeight;
+        const ww = window.innerWidth;
+
+        if (props.side === 'right'){
+
+            if (props.left + bounds.width > ww){
+                setLeft(ww - props.left);
+            } else {
+                setLeft(props.left)
+            }
+
+            if (props.top + bounds.height > wh){
+                setTop(wh - props.top);
+            } else {
+                setTop(props.top)
+            }
+
+        }
+
+    }, [bounds]);
+
     return (
-        <div className={style.container}>
+        <div ref={ref} className={style.container} style={{top: top, left: left}}>
             {props.children}
         </div>
     )
