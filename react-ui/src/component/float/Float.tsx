@@ -45,7 +45,7 @@ export default function Float(props: Props){
             }
 
             if (props.top + bounds.height > wh){
-                setTop(wh - props.top);
+                setTop(wh - bounds.height);
             } else {
                 setTop(props.top)
             }
