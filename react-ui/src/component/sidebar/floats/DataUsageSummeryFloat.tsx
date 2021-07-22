@@ -30,6 +30,18 @@ export default function DataUsageSummeryFloat(props: DataUsageI){
                         <ExpandLessIcon />
                         1.5GB
                     </div>
+
+                    <div className={style.title} style={{marginTop: '10px'}}>
+                        This Month
+                    </div>
+                    <div className={`${style.data} ${style.green}`}>
+                        <ExpandMoreIcon />
+                        1.5GB
+                    </div>
+                    <div className={`${style.data} ${style.red}`}>
+                        <ExpandLessIcon />
+                        1.5GB
+                    </div>
                 </Float>
             )}
         </div>
