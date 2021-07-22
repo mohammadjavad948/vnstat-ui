@@ -1,5 +1,4 @@
 import style from './sidebar.module.css';
-import PrettyByte from 'pretty-bytes';
 import {IconButton} from "@material-ui/core";
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import FilterListIcon from '@material-ui/icons/FilterList';

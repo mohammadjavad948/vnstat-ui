@@ -2,6 +2,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import Float from "../../float/Float";
 import style from './sum.module.css';
+import PrettyByte from 'pretty-bytes';
 
 interface DataUsageI{
     data: any
