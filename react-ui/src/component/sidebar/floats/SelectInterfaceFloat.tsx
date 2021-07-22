@@ -13,6 +13,10 @@ export default function SelectInterfaceFloat(props: SelectI){
 
     const {selected, interfaces, setSelected} = useInterfaceStore();
 
+    function selectChange(event: any){
+        setSelected(event.target.value)
+    }
+
     return (
         <div>
             {
@@ -27,7 +31,11 @@ export default function SelectInterfaceFloat(props: SelectI){
                             Select Interface
                         </div>
 
-                        <RadioGroup name="interface" value={selected}>
+                        <RadioGroup
+                            name="interface"
+                            value={selected}
+                            onChange={selectChange}
+                        >
                             {
                                 interfaces.map((data, index) => {
                                     return <FormControlLabel value={data} control={<Radio />} label={data} key={index} />
