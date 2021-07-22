@@ -29,8 +29,8 @@ export default function Sidebar(){
                 <IconButton>
                     <WifiIcon />
                 </IconButton>
+                <DataUsageSummeryFloat data={summeryData} hideFn={summeryHideFn} />
             </div>
-            <DataUsageSummeryFloat data={summeryData} hideFn={summeryHideFn} />
         </div>
     )
 }

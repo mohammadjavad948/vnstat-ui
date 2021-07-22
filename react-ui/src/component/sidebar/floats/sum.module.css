@@ -1,0 +1,22 @@
+
+.title{
+    font-size: 15px;
+}
+
+.data{
+    margin-top: 5px;
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 12px;
+}
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}

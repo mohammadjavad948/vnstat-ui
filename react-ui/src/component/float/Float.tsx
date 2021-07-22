@@ -7,7 +7,7 @@ interface Props{
     left: number
     top: number
     side: 'right' | 'left' | 'top' | 'bottom'
-    children: JSX.Element | string
+    children: JSX.Element | string | JSX.Element[]
     hideFn: () => void
 }
 
