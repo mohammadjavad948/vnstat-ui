@@ -1,9 +1,10 @@
+import style from './float.module.css';
 
 export default function Float(){
 
     return (
-        <div>
-
+        <div className={style.container}>
+            hmhmhm
         </div>
     )
 }
