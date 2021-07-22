@@ -48,11 +48,19 @@ export default function DataUsageSummeryFloat(props: DataUsageI){
                     </div>
                     <div className={`${style.data} ${style.green}`}>
                         <ExpandMoreIcon />
-                        1.5GB
+                        {
+                            PrettyByte(
+                                data.interfaces[0]?.traffic?.month[data.interfaces[0]?.traffic?.month.length - 1]?.rx || 0
+                            )
+                        }
                     </div>
                     <div className={`${style.data} ${style.red}`}>
                         <ExpandLessIcon />
-                        1.5GB
+                        {
+                            PrettyByte(
+                                data.interfaces[0]?.traffic?.month[data.interfaces[0]?.traffic?.month.length - 1]?.tx || 0
+                            )
+                        }
                     </div>
                 </Float>
             )}
