@@ -3,6 +3,7 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import Float from "../../float/Float";
 import style from './sum.module.css';
 import PrettyByte from 'pretty-bytes';
+import {useDataStore} from "../../../store/dataStore";
 
 interface DataUsageI{
     data: any
@@ -10,6 +11,8 @@ interface DataUsageI{
 }
 
 export default function DataUsageSummeryFloat(props: DataUsageI){
+
+    const {data} = useDataStore();
 
     return (
         <div>
@@ -25,11 +28,19 @@ export default function DataUsageSummeryFloat(props: DataUsageI){
                     </div>
                     <div className={`${style.data} ${style.green}`}>
                         <ExpandMoreIcon />
-                        1.5GB
+                        {
+                            PrettyByte(
+                                data.interfaces[0]?.traffic?.day[data.interfaces[0]?.traffic?.day.length - 1]?.rx || 0
+                            )
+                        }
                     </div>
                     <div className={`${style.data} ${style.red}`}>
                         <ExpandLessIcon />
-                        1.5GB
+                        {
+                            PrettyByte(
+                                data.interfaces[0]?.traffic?.day[data.interfaces[0]?.traffic?.day.length - 1]?.tx || 0
+                            )
+                        }
                     </div>
 
                     <div className={style.title} style={{marginTop: '10px'}}>
