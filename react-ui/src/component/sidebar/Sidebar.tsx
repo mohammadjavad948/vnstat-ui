@@ -6,7 +6,7 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import WifiIcon from '@material-ui/icons/Wifi';
 import useFloat from "../../hooks/float";
-import DataUsageSummeryFloat from "./DataUsageSummeryFloat";
+import DataUsageSummeryFloat from "./floats/DataUsageSummeryFloat";
 
 export default function Sidebar(){
 

@@ -1,5 +1,5 @@
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Float from "../float/Float";
+import Float from "../../float/Float";
 
 interface DataUsageI{
     data: any
