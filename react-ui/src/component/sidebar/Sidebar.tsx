@@ -8,11 +8,14 @@ import {useInterfaceStore} from "../../store/interfaceStore";
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import WifiIcon from '@material-ui/icons/Wifi';
 import Float from "../float/Float";
+import useFloat from "../../hooks/float";
 
 export default function Sidebar(){
 
     const {data} = useDataStore();
     const {selected} = useInterfaceStore();
+
+    const [floatData, clickHandle, hiderFn] = useFloat();
 
     return (
         <div className={style.sidebar}>
@@ -25,16 +28,18 @@ export default function Sidebar(){
                 </IconButton>
             </div>
             <div className={style.items}>
-                <IconButton>
+                <IconButton onClick={clickHandle}>
                     <ImportExportIcon />
                 </IconButton>
                 <IconButton>
                     <WifiIcon />
                 </IconButton>
             </div>
-            <Float top={20} left={20} side={'right'}>
-                khobe?
-            </Float>
+            {floatData.show && (
+                <Float top={floatData.y} left={floatData.x} side={'right'}>
+                    khobe?
+                </Float>
+            )}
         </div>
     )
 }

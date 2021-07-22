@@ -18,8 +18,6 @@ export default function Float(props: Props){
 
     useEffect(() => {
 
-        console.log(bounds)
-
         const wh = window.innerHeight;
         const ww = window.innerWidth;
 
@@ -28,7 +26,7 @@ export default function Float(props: Props){
             if (props.left + bounds.width > ww){
                 setLeft(ww - props.left);
             } else {
-                setLeft(props.left)
+                setLeft(props.left + 20)
             }
 
             if (props.top + bounds.height > wh){
