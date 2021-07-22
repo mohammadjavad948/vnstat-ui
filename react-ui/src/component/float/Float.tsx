@@ -1,10 +1,17 @@
 import style from './float.module.css';
 
-export default function Float(){
+interface Props{
+    left: number
+    top: number
+    side: 'right' | 'left' | 'top' | 'bottom'
+    children: JSX.Element | string
+}
+
+export default function Float(props: Props){
 
     return (
         <div className={style.container}>
-            hmhmhm
+            {props.children}
         </div>
     )
 }

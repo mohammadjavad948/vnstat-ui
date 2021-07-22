@@ -7,6 +7,7 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import {useInterfaceStore} from "../../store/interfaceStore";
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import WifiIcon from '@material-ui/icons/Wifi';
+import Float from "../float/Float";
 
 export default function Sidebar(){
 
@@ -31,6 +32,9 @@ export default function Sidebar(){
                     <WifiIcon />
                 </IconButton>
             </div>
+            <Float>
+                khobe?
+            </Float>
         </div>
     )
 }

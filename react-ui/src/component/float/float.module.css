@@ -1,9 +1,7 @@
 .container{
     position: fixed;
-    right: 20px;
-    top: 50px;
-    padding: 12px;
+    padding: 15px;
     border-radius: 10px;
     background-color: var(--background);
-    box-shadow: 0 0 black;
+    box-shadow: 0 0 7px var(--shadow-color);
 }
