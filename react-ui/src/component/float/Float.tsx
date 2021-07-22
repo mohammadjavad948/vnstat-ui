@@ -52,15 +52,16 @@ export default function Float(props: Props){
 
         }
 
+    }, [bounds]);
 
+    useEffect(() => {
         // add when mounted
         document.addEventListener("mousedown", handleClick);
         // return function to be called when unmounted
         return () => {
             document.removeEventListener("mousedown", handleClick);
         };
-
-    }, [bounds]);
+    }, [])
 
     return (
         <div
