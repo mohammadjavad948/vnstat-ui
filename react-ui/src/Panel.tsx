@@ -1,5 +1,6 @@
 import style from './panel.module.css';
 import DailyUsageChart from "./component/charts/DailyUsageChart";
+import MonthUploadVsDownloadChart from "./component/charts/MonthUploadVsDownloadChart";
 
 export default function Panel(){
 
@@ -8,6 +9,7 @@ export default function Panel(){
             <div className="container">
                 <div className="row">
                     <DailyUsageChart />
+                    <MonthUploadVsDownloadChart />
                 </div>
             </div>
         </div>
