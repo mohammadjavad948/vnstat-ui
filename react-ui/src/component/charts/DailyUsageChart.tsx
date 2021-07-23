@@ -38,7 +38,7 @@ export default function DailyUsageChart(){
                     data: last7.map((el: DayTraffic) => {
                         return el.rx + el.tx;
                     }),
-                    backgroundColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgb(0,155,255)',
                 },
             ],
         })
