@@ -14,10 +14,10 @@ export default function MonthUploadVsDownloadChart(){
         const lastMonth = rawData.interfaces[0].traffic.month[rawData.interfaces[0].traffic.month.length - 1];
 
         setData({
-            labels: [`${PrettyByte(lastMonth.rx)} Download`, `${PrettyByte(lastMonth.tx)} Upload`],
+            labels: [`${PrettyByte(lastMonth?.rx || 0)} Download`, `${PrettyByte(lastMonth?.tx || 0)} Upload`],
             datasets: [
                 {
-                    data: [lastMonth.rx, lastMonth.tx],
+                    data: [lastMonth?.rx || 0, lastMonth?.tx || 0],
                     backgroundColor: [
                         'rgb(51,248,0)',
                         'rgb(255,0,0)',
