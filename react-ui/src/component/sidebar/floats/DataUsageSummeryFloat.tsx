@@ -62,6 +62,25 @@ export default function DataUsageSummeryFloat(props: DataUsageI){
                             )
                         }
                     </div>
+                    <div className={style.title} style={{marginTop: '10px'}}>
+                        This Year
+                    </div>
+                    <div className={`${style.data} ${style.green}`}>
+                        <ExpandMoreIcon />
+                        {
+                            PrettyByte(
+                                data.interfaces[0]?.traffic?.year[data.interfaces[0]?.traffic?.year.length - 1]?.rx || 0
+                            )
+                        }
+                    </div>
+                    <div className={`${style.data} ${style.red}`}>
+                        <ExpandLessIcon />
+                        {
+                            PrettyByte(
+                                data.interfaces[0]?.traffic?.year[data.interfaces[0]?.traffic?.year.length - 1]?.tx || 0
+                            )
+                        }
+                    </div>
                 </Float>
             )}
         </div>
