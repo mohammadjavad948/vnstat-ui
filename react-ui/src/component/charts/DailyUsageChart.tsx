@@ -49,6 +49,7 @@ export default function DailyUsageChart(){
         <div className="col-lg-8 col-md-12 col-sm-12">
             <Card>
                 <CardContent>
+                    <h3>This Week</h3>
                     <Bar data={data} options={options} />
                 </CardContent>
             </Card>
