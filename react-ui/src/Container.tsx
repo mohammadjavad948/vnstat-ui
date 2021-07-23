@@ -4,6 +4,7 @@ import {useInterfaceStore} from "./store/interfaceStore";
 import Sidebar from "./component/sidebar/Sidebar";
 import {useDataStore} from "./store/dataStore";
 import style from './container.module.css';
+import Panel from "./Panel";
 
 export default function Container(){
 
@@ -55,6 +56,7 @@ export default function Container(){
     return (
         <div className={style.container}>
             <Sidebar />
+            <Panel />
         </div>
     )
 }
