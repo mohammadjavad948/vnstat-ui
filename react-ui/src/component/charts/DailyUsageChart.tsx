@@ -2,7 +2,6 @@ import {Card, CardContent} from "@material-ui/core";
 import {Bar} from "react-chartjs-2";
 import {useEffect, useState} from "react";
 import {useDataStore} from "../../store/dataStore";
-import {ChartData} from "chart.js";
 import PrettyByte from "pretty-bytes";
 import {DayTraffic} from "../../type/response";
 
