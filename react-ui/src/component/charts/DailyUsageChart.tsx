@@ -1,5 +1,10 @@
 import {Card, CardContent} from "@material-ui/core";
 import {Bar} from "react-chartjs-2";
+import {useEffect, useState} from "react";
+import {useDataStore} from "../../store/dataStore";
+import {ChartData} from "chart.js";
+import PrettyByte from "pretty-bytes";
+import {DayTraffic} from "../../type/response";
 
 const options = {
     scales: {
@@ -13,34 +18,33 @@ const options = {
     },
 }
 
-const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [
-        {
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-            ],
-            borderWidth: 1,
-        },
-    ],
-};
-
 export default function DailyUsageChart(){
+
+    const [data, setData] = useState({});
+
+    const {data: rawData} = useDataStore();
+
+    useEffect(() => {
+        const days = rawData.interfaces[0].traffic?.day;
+
+        const last7 = days.slice(Math.max(days.length - 7, 1));
+
+        setData({
+            labels: last7.map((el: DayTraffic) => {
+                return PrettyByte(el.rx + el.tx);
+            }),
+            datasets: [
+                {
+                    label: 'Usage (download + upload)',
+                    data: last7.map((el: DayTraffic) => {
+                        return el.rx + el.tx;
+                    }),
+                    backgroundColor: 'rgba(54, 162, 235, 1)',
+                },
+            ],
+        })
+
+    }, [rawData])
 
     return (
         <Card>
