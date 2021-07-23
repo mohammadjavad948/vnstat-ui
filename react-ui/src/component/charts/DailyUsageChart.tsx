@@ -1,6 +1,17 @@
 import {Card, CardContent} from "@material-ui/core";
 import {Bar} from "react-chartjs-2";
 
+const options = {
+    scales: {
+        yAxes: [
+            {
+                ticks: {
+                    beginAtZero: true,
+                },
+            },
+        ],
+    },
+}
 
 const data = {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -34,7 +45,7 @@ export default function DailyUsageChart(){
     return (
         <Card>
             <CardContent>
-                <Bar data={data} />
+                <Bar data={data} options={options} />
             </CardContent>
         </Card>
     )
