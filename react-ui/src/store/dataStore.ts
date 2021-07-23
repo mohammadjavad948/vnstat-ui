@@ -12,7 +12,9 @@ export const useDataStore = create<DataI>((set) => {
         data: {
             interfaces: [
                 {
-
+                    traffic: {
+                        day: []
+                    }
                 }
             ]
         },
