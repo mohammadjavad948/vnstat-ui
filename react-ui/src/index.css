@@ -1,3 +1,5 @@
+@import "~bootstrap/dist/css/bootstrap-grid.css";
+
 :root{
   --background: #ffffff;
   --shadow-color: #a5a5a5;
