@@ -5,7 +5,11 @@ export default function Panel(){
 
     return (
         <div className={style.container}>
-            <DailyUsageChart />
+            <div className="container">
+                <div className="row">
+                    <DailyUsageChart />
+                </div>
+            </div>
         </div>
     )
 }

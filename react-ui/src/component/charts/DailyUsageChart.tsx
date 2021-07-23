@@ -46,10 +46,12 @@ export default function DailyUsageChart(){
     }, [rawData])
 
     return (
-        <Card>
-            <CardContent>
-                <Bar data={data} options={options} />
-            </CardContent>
-        </Card>
+        <div className="col-6">
+            <Card>
+                <CardContent>
+                    <Bar data={data} options={options} />
+                </CardContent>
+            </Card>
+        </div>
     )
 }
