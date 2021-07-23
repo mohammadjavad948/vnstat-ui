@@ -46,7 +46,7 @@ export default function DailyUsageChart(){
     }, [rawData])
 
     return (
-        <div className="col-6">
+        <div className="col-lg-6 col-md-6 col-sm-12">
             <Card>
                 <CardContent>
                     <Bar data={data} options={options} />
