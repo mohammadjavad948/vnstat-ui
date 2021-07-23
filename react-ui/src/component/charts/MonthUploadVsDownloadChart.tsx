@@ -1,6 +1,8 @@
 import {Card, CardContent} from "@material-ui/core";
 import {useEffect, useState} from "react";
 import {useDataStore} from "../../store/dataStore";
+import {Doughnut} from "react-chartjs-2";
+import PrettyByte from "pretty-bytes";
 
 export default function MonthUploadVsDownloadChart(){
 
@@ -12,15 +14,14 @@ export default function MonthUploadVsDownloadChart(){
         const lastMonth = rawData.interfaces[0].traffic.month[rawData.interfaces[0].traffic.month.length - 1];
 
         setData({
-            labels: ['Download', 'Upload'],
+            labels: [`${PrettyByte(lastMonth.rx)} Download`, `${PrettyByte(lastMonth.tx)} Upload`],
             datasets: [
                 {
-                    label: 'Download',
-                    data: 5,
-                },
-                {
-                    label: 'Upload',
-                    data: 20,
+                    data: [lastMonth.rx, lastMonth.tx],
+                    backgroundColor: [
+                        'rgb(51,248,0)',
+                        'rgb(255,0,0)',
+                    ],
                 },
             ],
         });
@@ -30,6 +31,8 @@ export default function MonthUploadVsDownloadChart(){
         <div className="col-lg-6 col-md-12 col-sm-12">
             <Card>
                 <CardContent>
+                    <h3>This Month</h3>
+                    <Doughnut data={data} />
                 </CardContent>
             </Card>
         </div>
