@@ -6,6 +6,7 @@ declare global {
         api: {
             interfaces: () => Promise<string>
             getData: (options: string[]) => Promise<VnstatI>
+            send: (event: string) => void
         }
     }
 }
