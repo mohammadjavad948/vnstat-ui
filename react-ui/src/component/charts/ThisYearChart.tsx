@@ -13,13 +13,14 @@ export default function ThisYearChart(){
     useEffect(() => {
         const month = rawData.interfaces[0].traffic.month;
 
-        const month12 = month.slice(Math.max(month.length - 12, 1));
+        const month12 = month.slice(Math.max(month.length - 12, 0));
 
         setData({
             labels: month12.map((data) => {
+
                 const sum = data.rx + data.tx;
-                const month = new Date().setFullYear(data.date.year, data.date.month, 0).toLocaleString();
-                return `${PrettyByte(sum || 0)} ${month}`
+
+                return `${PrettyByte(sum || 0)} ${data.date.year}-${data.date.month}`
             }),
             datasets: [
                 {
