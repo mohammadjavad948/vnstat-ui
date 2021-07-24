@@ -19,8 +19,8 @@ export default function MonthUploadVsDownloadChart(){
                 {
                     data: [lastMonth?.rx || 0, lastMonth?.tx || 0],
                     backgroundColor: [
-                        'rgb(51,248,0)',
-                        'rgb(255,0,0)',
+                        'rgb(49,213,1)',
+                        'rgb(220,1,1)',
                     ],
                 },
             ],
