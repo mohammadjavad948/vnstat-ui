@@ -28,7 +28,7 @@ export default function MonthUploadVsDownloadChart(){
     }, [rawData]);
 
     return (
-        <div className="col-lg-4 col-md-12 col-sm-12">
+        <div className="col-lg-4 col-md-6 col-sm-12 mt-2">
             <Card>
                 <CardContent>
                     <h3>This Month</h3>
