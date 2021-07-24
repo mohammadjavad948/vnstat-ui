@@ -27,11 +27,22 @@ export default function ThisYearChart(){
                     data: month12.map((data) => {
                         return data.rx + data.tx;
                     }),
-                    backgroundColor: 'white',
+                    backgroundColor: month12.map(() => {
+                        return getRandomColor();
+                    }),
                 },
             ],
         });
     }, [rawData]);
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
 
     return (
         <div className="col-lg-4 col-md-6 col-sm-12 mt-2">
