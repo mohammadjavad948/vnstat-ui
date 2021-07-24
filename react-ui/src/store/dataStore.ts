@@ -15,6 +15,7 @@ export const useDataStore = create<DataI>((set) => {
                     traffic: {
                         day: [],
                         month: [],
+                        year: [],
                     }
                 }
             ]
