@@ -20,13 +20,14 @@ const options = {
 export default function DailyUsageChart(){
 
     const [data, setData] = useState({});
+    const [sum, setSum] = useState(0);
 
     const {data: rawData} = useDataStore();
 
     useEffect(() => {
         const days = rawData.interfaces[0].traffic?.day;
 
-        const last7 = days.slice(Math.max(days.length - 7, 1));
+        const last7: DayTraffic[] = days.slice(Math.max(days.length - 7, 1));
 
         setData({
             labels: last7.map((el: DayTraffic) => {
@@ -43,13 +44,21 @@ export default function DailyUsageChart(){
             ],
         })
 
+        let s = 0;
+
+        last7.forEach((el) => {
+            s+= el.tx + el.rx;
+        });
+
+        setSum(s)
+
     }, [rawData])
 
     return (
         <div className="col-lg-8 col-md-12 col-sm-12">
             <Card>
                 <CardContent>
-                    <h3>This Week</h3>
+                    <h3>This Week {PrettyByte(sum)}</h3>
                     <Bar data={data} options={options} />
                 </CardContent>
             </Card>
