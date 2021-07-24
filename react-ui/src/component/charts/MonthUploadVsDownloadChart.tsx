@@ -7,6 +7,7 @@ import PrettyByte from "pretty-bytes";
 export default function MonthUploadVsDownloadChart(){
 
     const [data, setData] = useState({});
+    const [sum, setSum] = useState(0);
 
     const {data: rawData} = useDataStore();
 
@@ -25,13 +26,16 @@ export default function MonthUploadVsDownloadChart(){
                 },
             ],
         });
+
+        setSum((lastMonth?.rx || 0) + (lastMonth?.tx || 0));
+
     }, [rawData]);
 
     return (
         <div className="col-lg-4 col-md-6 col-sm-12 mt-2">
             <Card>
                 <CardContent>
-                    <h3>This Month</h3>
+                    <h3>This Month {PrettyByte(sum)}</h3>
                     <Doughnut data={data} />
                 </CardContent>
             </Card>
