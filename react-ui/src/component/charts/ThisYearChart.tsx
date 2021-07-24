@@ -7,6 +7,7 @@ import PrettyByte from "pretty-bytes";
 export default function ThisYearChart(){
 
     const [data, setData] = useState({});
+    const [sum, setSum] = useState(0);
 
     const {data: rawData} = useDataStore();
 
@@ -33,6 +34,15 @@ export default function ThisYearChart(){
                 },
             ],
         });
+
+        let s = 0;
+
+        month12.forEach((el) => {
+            s += el.rx + el.tx;
+        });
+
+        setSum(s);
+
     }, [rawData]);
 
     function getRandomColor() {
@@ -48,7 +58,7 @@ export default function ThisYearChart(){
         <div className="col-lg-4 col-md-6 col-sm-12 mt-2">
             <Card>
                 <CardContent>
-                    <h3>This Year</h3>
+                    <h3>This Year {PrettyByte(sum)}</h3>
                     <Doughnut data={data} />
                 </CardContent>
             </Card>
