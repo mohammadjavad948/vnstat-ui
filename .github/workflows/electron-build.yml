@@ -1,0 +1,31 @@
+name: build electron
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Install electron deps
+        run: cd electron && yarn install
+      - name: Install react deps
+        run: cd react-ui && yarn install
+      - name: Bundle react
+        run: cd react-ui && rm package.json && cp github-ci.json package.json && yarn run build
+      - name: Copy bundle
+        run: cp react-ui/build electron/build
+      - name: Bundle react
+        run: cd electron && yarn run make
+      - name: Upload deb
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-ubuntu-deb
+          path: electron/out/make/deb
+      - name: Upload rpm
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-ubuntu-rpm
+          path: electron/out/make/rpm
