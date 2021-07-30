@@ -24,7 +24,7 @@ const createWindow = () => {
         frame: false
     });
 
-    if (process.env.Dev === true){
+    if (process.env.dev){
         // and load the index.html of the app.
         mainWindow.loadURL('http://localhost:3000');
 

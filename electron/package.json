@@ -6,7 +6,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
-    "start-server": "Dev=true electron-forge start",
+    "start-server": "dev=true electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
