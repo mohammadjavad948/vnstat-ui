@@ -24,9 +24,13 @@ const createWindow = () => {
         frame: false
     });
 
-    console.log(process.env.dev);
-    // and load the index.html of the app.
-    mainWindow.loadURL('http://localhost:3000');
+    if (process.env.Dev === true){
+        // and load the index.html of the app.
+        mainWindow.loadURL('http://localhost:3000');
+    } else {
+        // and load the index.html of the app.
+        mainWindow.loadFile(__dirname + '/build/index.html');
+    }
 
     mainWindow.removeMenu();
 
