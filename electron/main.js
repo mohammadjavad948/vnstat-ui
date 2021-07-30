@@ -27,15 +27,15 @@ const createWindow = () => {
     if (process.env.Dev === true){
         // and load the index.html of the app.
         mainWindow.loadURL('http://localhost:3000');
+
+        // Open the DevTools.
+        mainWindow.webContents.openDevTools();
     } else {
         // and load the index.html of the app.
         mainWindow.loadFile(__dirname + '/build/index.html');
     }
 
     mainWindow.removeMenu();
-
-    // Open the DevTools.
-    mainWindow.webContents.openDevTools();
 
     ipcMain.on('close', () => {
         mainWindow.close();
