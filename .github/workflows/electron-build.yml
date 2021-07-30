@@ -17,7 +17,7 @@ jobs:
         run: cd react-ui && rm package.json && cp github-ci.json package.json && yarn run build
       - name: Copy bundle
         run: cp react-ui/build electron/build
-      - name: Bundle react
+      - name: Bundle electron
         run: cd electron && yarn run make
       - name: Upload deb
         uses: actions/upload-artifact@v2
