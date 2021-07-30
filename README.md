@@ -7,7 +7,7 @@ it shows your data usage in a simple ui
 ## File Structure
 
 - react-ui : contains interface made with react
-- electron : contains electron wrapper for interface
+- electron : contains electron wrapper for react
 
 ## Development
 
