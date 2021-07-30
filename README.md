@@ -21,6 +21,8 @@ That's it. Now you can start editing codes :)
 
 ## Bundling
 
+In react-ui/package.json, set homepage to **./**
+
 Go to react-ui and run **yarn run build**
 
 Copy build folder to electron directory from react-ui/build => electron/build
