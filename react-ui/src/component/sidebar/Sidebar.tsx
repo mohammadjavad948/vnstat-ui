@@ -19,9 +19,6 @@ export default function Sidebar(){
                 <IconButton>
                     <DashboardIcon />
                 </IconButton>
-                <IconButton>
-                    <FilterListIcon />
-                </IconButton>
             </div>
             <div className={style.items}>
                 <IconButton onClick={summeryClickHandle}>
