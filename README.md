@@ -21,4 +21,15 @@ That's it. Now you can start editing codes :)
 
 ## Bundling
 
+Go to react-ui and run **yarn run build**
+
+Copy build folder to electron directory from react-ui/build => electron/build
+
+In electron directory, run **yarn run package**
+
+Now you can see an out directory and run the app
+
+-------
+**Note that you can ONLY run app when you have vnstat on your device installed**
+
 I made this project to learn electron better
