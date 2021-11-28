@@ -1,7 +1,8 @@
 use std::process::Command;
 use wasm_bindgen::prelude::*;
 
-fn main(){
+#[wasm_bindgen]
+fn days_chart(){
     let out = Command::new("vnstat")
         .arg("-i")
         .arg("wlp2s0")
