@@ -1,4 +1,5 @@
 use std::process::Command;
+use wasm_bindgen::prelude::*;
 
 fn main(){
     let out = Command::new("vnstat")
