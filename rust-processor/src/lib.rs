@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::Result;
 
 #[wasm_bindgen]
-pub fn days_chart() -> u8 {
+pub fn days_chart(data: &str) -> String {
 
-    return 5;
+    return data.to_string();
 }
