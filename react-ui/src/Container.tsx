@@ -5,7 +5,6 @@ import Sidebar from "./component/sidebar/Sidebar";
 import {useDataStore} from "./store/dataStore";
 import style from './container.module.css';
 import Panel from "./Panel";
-import {days_chart} from 'rust-processor';
 
 export default function Container(){
 
@@ -33,7 +32,8 @@ export default function Container(){
 
         console.log(data)
 
-        console.log(days_chart())
+        const all = await import('rust-processor');
+        console.log(all.days_chart())
 
         setData(data);
     }
