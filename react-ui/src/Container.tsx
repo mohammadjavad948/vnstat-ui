@@ -32,6 +32,10 @@ export default function Container(){
 
         console.log(data)
 
+        const prc = await import('rust-processor')
+
+        console.log(prc.days_chart())
+
         setData(data);
     }
 
