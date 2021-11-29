@@ -2,45 +2,52 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct DaysInterface {
-    interfaces: Vec<Interface>,
-    jsonversion: str,
-    vnstatversion: str
+    pub interfaces: Vec<Interface>,
+    pub jsonversion: String,
+    pub vnstatversion: String
 }
 
-struct Interface {
-    alias: str,
-    name: str,
+#[derive(Serialize, Deserialize)]
+pub struct Interface {
+    alias: String,
+    name: String,
     created: Created,
     updated: Updated
 }
 
-struct Traffic {
+#[derive(Serialize, Deserialize)]
+pub struct Traffic {
     day: Vec<Day>
 }
 
-struct Day {
+#[derive(Serialize, Deserialize)]
+pub struct Day {
     date: Date,
     id: usize,
     rx: usize,
     tx: usize
 }
 
-struct Updated {
+#[derive(Serialize, Deserialize)]
+pub struct Updated {
     date: Date,
     time: Time
 }
 
-struct Created {
+#[derive(Serialize, Deserialize)]
+pub struct Created {
     date: Date
 }
 
-struct Date {
+#[derive(Serialize, Deserialize)]
+pub struct Date {
     year: u32,
     month: u32,
     day: u32
 }
 
-struct Time {
+#[derive(Serialize, Deserialize)]
+pub struct Time {
     hour: u32,
     minute: u32
 }

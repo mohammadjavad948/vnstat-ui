@@ -9,7 +9,9 @@ use serde_json::Result;
 #[wasm_bindgen]
 pub fn days_chart(data: &str) -> String {
 
-    let converted: DaysInterface = serde_json::from_str(data).expect("hmmm");
+    let converted: DaysInterface = serde_json::from_str(data).unwrap();
 
-    return data.to_string();
+
+
+    return converted.jsonversion.to_string();
 }
