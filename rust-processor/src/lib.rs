@@ -1,3 +1,5 @@
+extern crate console_error_panic_hook;
+
 mod structure;
 
 use structure::DaysInterface;
@@ -22,6 +24,7 @@ extern {
 
 #[wasm_bindgen]
 pub fn days_chart(data: &str) -> String {
+    console_error_panic_hook::set_once();
 
     console_log!("before");
 
