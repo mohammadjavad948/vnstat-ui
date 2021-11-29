@@ -1,28 +1,26 @@
+
 const path = require('path');
+const WasmPackPlugin = require("@wasm-tool/wasm-pack-plugin");
 
 module.exports = function override(config, env) {
+    config.resolve.extensions.push(".wasm");
 
-    /**
-     * Add WASM support
-     */
-
-        // Make file-loader ignore WASM files
-    const wasmExtensionRegExp = /\.wasm$/;
-    config.resolve.extensions.push('.wasm');
     config.module.rules.forEach(rule => {
         (rule.oneOf || []).forEach(oneOf => {
-            if (oneOf.loader && oneOf.loader.indexOf('file-loader') >= 0) {
-                oneOf.exclude.push(wasmExtensionRegExp);
+            if (oneOf.loader && oneOf.loader.indexOf("file-loader") >= 0) {
+                // Make file-loader ignore WASM files
+                oneOf.exclude.push(/\.wasm$/);
             }
         });
     });
 
-    // Add a dedicated loader for WASM
-    config.module.rules.push({
-        test: wasmExtensionRegExp,
-        include: path.resolve(__dirname, 'src'),
-        use: [{ loader: require.resolve('wasm-loader'), options: {} }]
-    });
+    config.plugins = (config.plugins || []).concat([
+        new WasmPackPlugin({
+            crateDirectory: path.resolve(__dirname, "<path/to/native/build>"),
+            extraArgs: "--no-typescript",
+            outDir: path.resolve(__dirname, "<path/to/native/build>")
+        }),
+    ]);
 
     return config;
-};
+}
