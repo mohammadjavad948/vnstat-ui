@@ -12,7 +12,8 @@ pub struct Interface {
     pub alias: String,
     pub name: String,
     pub created: Created,
-    pub updated: Updated
+    pub updated: Updated,
+    pub traffic: Vec<Traffic>
 }
 
 #[derive(Serialize, Deserialize)]

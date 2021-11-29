@@ -11,7 +11,7 @@ pub fn days_chart(data: &str) -> String {
 
     let converted: DaysInterface = serde_json::from_str(data).unwrap();
 
-
+    let dayavg = converted.interfaces.first().unwrap().
 
     return converted.to_string();
 }
