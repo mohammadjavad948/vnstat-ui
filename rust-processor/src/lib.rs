@@ -13,5 +13,5 @@ pub fn days_chart(data: &str) -> String {
 
 
 
-    return converted.jsonversion.to_string();
+    return converted.to_string();
 }

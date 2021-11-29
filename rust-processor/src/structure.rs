@@ -9,41 +9,41 @@ pub struct DaysInterface {
 
 #[derive(Serialize, Deserialize)]
 pub struct Interface {
-    alias: String,
-    name: String,
-    created: Created,
-    updated: Updated
+    pub alias: String,
+    pub name: String,
+    pub created: Created,
+    pub updated: Updated
 }
 
 #[derive(Serialize, Deserialize)]
 pub struct Traffic {
-    day: Vec<Day>
+    pub day: Vec<Day>
 }
 
 #[derive(Serialize, Deserialize)]
 pub struct Day {
-    date: Date,
-    id: usize,
-    rx: usize,
-    tx: usize
+    pub date: Date,
+    pub id: usize,
+    pub rx: usize,
+    pub tx: usize
 }
 
 #[derive(Serialize, Deserialize)]
 pub struct Updated {
-    date: Date,
-    time: Time
+    pub date: Date,
+    pub time: Time
 }
 
 #[derive(Serialize, Deserialize)]
 pub struct Created {
-    date: Date
+    pub date: Date
 }
 
 #[derive(Serialize, Deserialize)]
 pub struct Date {
-    year: u32,
-    month: u32,
-    day: u32
+    pub year: u32,
+    pub month: u32,
+    pub day: u32
 }
 
 #[derive(Serialize, Deserialize)]
