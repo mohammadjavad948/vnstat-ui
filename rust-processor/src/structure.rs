@@ -25,8 +25,8 @@ pub struct Traffic {
 pub struct Day {
     pub date: Date,
     pub id: usize,
-    pub rx: usize,
-    pub tx: usize
+    pub rx: u64,
+    pub tx: u64
 }
 
 #[derive(Serialize, Deserialize)]
