@@ -32,8 +32,8 @@ export default function Container(){
 
         console.log(await getData(['-d', '--limit', '0', '-i', selected]))
 
-        console.log(JSON.stringify(data))
         const all = await import('rust-processor');
+
         console.log(all.days_chart(JSON.stringify(data)))
 
         setData(data);
