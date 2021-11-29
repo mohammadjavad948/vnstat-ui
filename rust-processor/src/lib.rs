@@ -26,11 +26,19 @@ extern {
 pub fn days_chart(data: &str) -> String {
     console_error_panic_hook::set_once();
 
-    console_log!("before");
 
     let converted: DaysInterface = serde_json::from_str(data).unwrap();
 
-    console_log!("after");
 
-    converted.vnstatversion.to_string()
+
+    converted.interfaces
+        .first()
+        .unwrap()
+        .traffic
+        .day
+        .iter()
+        .map(|x| x.tx + x.rx)
+        .max()
+        .unwrap()
+        .to_string()
 }
