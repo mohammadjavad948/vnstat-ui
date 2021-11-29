@@ -54,6 +54,7 @@
     ]
   },
   "devDependencies": {
-    "@wasm-tool/wasm-pack-plugin": "^1.6.0"
+    "@wasm-tool/wasm-pack-plugin": "^1.6.0",
+    "base64-loader": "^1.0.0"
   }
 }
