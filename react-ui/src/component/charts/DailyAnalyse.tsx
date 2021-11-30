@@ -5,17 +5,12 @@ const options = {
     scales: {
         yAxes: [
             {
+                stacked: true,
                 ticks: {
                     beginAtZero: true,
                 },
             },
         ],
-        x: {
-            stacked: true,
-        },
-        y: {
-            stacked: true
-        }
     },
 }
 
@@ -26,7 +21,29 @@ export default function DailyAnalyse(props: {data: any}){
             <Card>
                 <CardContent>
                     <h3>Daily Usage Analyse (powered by rust)</h3>
-                    <Bar data={data} options={options} />
+                    <Bar
+                        data={{
+                            labels: [1, 2, 3, 4, 5, 6, 7],
+                            datasets: [
+                                {
+                                    label: 'Min',
+                                    data: props.data.min,
+                                    backgroundColor: 'rgb(0,255,115)',
+                                },
+                                {
+                                    label: 'Avg',
+                                    data: props.data.avg,
+                                    backgroundColor: 'rgb(0,155,255)',
+                                },
+                                {
+                                    label: 'Max',
+                                    data: props.data.max,
+                                    backgroundColor: 'rgb(76,0,255)',
+                                },
+                            ],
+                        }}
+                        options={options}
+                    />
                 </CardContent>
             </Card>
         </div>
