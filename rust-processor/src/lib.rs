@@ -24,21 +24,45 @@ extern {
 
 #[wasm_bindgen]
 pub fn days_chart(data: &str) -> String {
+
+    let mut max: Vec<String> = vec![];
+    let mut min: Vec<String> = vec![];
+    let mut avg: Vec<String> = vec![];
+
     console_error_panic_hook::set_once();
 
 
     let converted: DaysInterface = serde_json::from_str(data).unwrap();
 
 
+    for i in 1..=7 {
+        let day = converted.interfaces
+            .first()
+            .unwrap()
+            .traffic
+            .day
+            .iter()
+            .filter(|x| x.date.day == i)
+            .map(|x| x.tx + x.rx);
 
-    converted.interfaces
-        .first()
-        .unwrap()
-        .traffic
-        .day
-        .iter()
-        .map(|x| x.tx + x.rx)
-        .max()
-        .unwrap()
-        .to_string()
+        let day_max = day
+            .clone()
+            .max()
+            .unwrap()
+            .to_string();
+
+        let day_min = day
+            .clone()
+            .min()
+            .unwrap()
+            .to_string();
+
+        let day_avg = day.clone().sum::<u64>();
+
+        min.push(day_min.to_string());
+        max.push(day_max.to_string());
+        avg.push(day_avg.to_string());
+    }
+
+    return "srf".to_string()
 }
