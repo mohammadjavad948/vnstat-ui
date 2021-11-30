@@ -2,6 +2,7 @@ import style from './panel.module.css';
 import DailyUsageChart from "./component/charts/DailyUsageChart";
 import MonthUploadVsDownloadChart from "./component/charts/MonthUploadVsDownloadChart";
 import ThisYearChart from "./component/charts/ThisYearChart";
+import DailyAnalyse from "./component/charts/DailyAnalyse";
 
 export default function Panel(){
 
@@ -12,6 +13,7 @@ export default function Panel(){
                     <DailyUsageChart />
                     <MonthUploadVsDownloadChart />
                     <ThisYearChart />
+                    <DailyAnalyse />
                 </div>
             </div>
         </div>
