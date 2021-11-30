@@ -4,7 +4,7 @@ import MonthUploadVsDownloadChart from "./component/charts/MonthUploadVsDownload
 import ThisYearChart from "./component/charts/ThisYearChart";
 import DailyAnalyse from "./component/charts/DailyAnalyse";
 
-export default function Panel(){
+export default function Panel(props: {data: any}){
 
     return (
         <div className={style.container}>
@@ -13,7 +13,7 @@ export default function Panel(){
                     <DailyUsageChart />
                     <MonthUploadVsDownloadChart />
                     <ThisYearChart />
-                    <DailyAnalyse />
+                    <DailyAnalyse data={props.data} />
                 </div>
             </div>
         </div>

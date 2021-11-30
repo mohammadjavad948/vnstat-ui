@@ -70,7 +70,7 @@ export default function Container(){
     return (
         <div className={style.container}>
             <Sidebar />
-            <Panel />
+            <Panel data={daysData} />
         </div>
     )
 }
