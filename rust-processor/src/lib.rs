@@ -3,6 +3,7 @@ extern crate console_error_panic_hook;
 mod structure;
 
 use structure::DaysInterface;
+use structure::DaysReturn;
 
 use wasm_bindgen::prelude::*;
 use serde_json::Result;
@@ -64,5 +65,11 @@ pub fn days_chart(data: &str) -> String {
         avg.push(day_avg.to_string());
     }
 
-    return "srf".to_string()
+    let final_data = DaysReturn {
+        avg,
+        min,
+        max
+    };
+
+    return serde_json::to_string::<DaysReturn>(&final_data).unwrap();
 }

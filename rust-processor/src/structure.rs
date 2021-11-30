@@ -49,6 +49,13 @@ pub struct Date {
 
 #[derive(Serialize, Deserialize)]
 pub struct Time {
-    hour: u32,
-    minute: u32
+    pub hour: u32,
+    pub minute: u32
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct DaysReturn {
+    pub min: Vec<String>,
+    pub max: Vec<String>,
+    pub avg: Vec<String>,
 }
