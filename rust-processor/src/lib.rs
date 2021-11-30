@@ -20,14 +20,14 @@ pub fn days_chart(data: &str) -> String {
     let converted: DaysInterface = serde_json::from_str(data).unwrap();
 
 
-    for i in 1..=7 {
+    for i in 0..7 {
         let day = converted.interfaces
             .first()
             .unwrap()
             .traffic
             .day
             .iter()
-            .filter(|x| x.date.day == i)
+            .filter(|x| x.date.day % 7 == i)
             .map(|x| x.tx + x.rx);
 
         let day_max = day
