@@ -57,7 +57,7 @@ pub fn days_chart(data: &str) -> String {
             .unwrap()
             .to_string();
 
-        let day_avg = day.clone().sum::<u64>();
+        let day_avg: f64 = day.clone().sum::<u64>() as f64 / day.clone().count() as f64;
 
         min.push(day_min.to_string());
         max.push(day_max.to_string());
