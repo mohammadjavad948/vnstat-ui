@@ -11,6 +11,8 @@ export default function Container(){
     const {setInterfaces, setSelected, selected} = useInterfaceStore();
     const {setData} = useDataStore();
 
+    const [daysData, setDaysData] = useState({min: [], max: [], avg: []});
+
     const [updateInterval, setUpdateInterval] = useState(null) as any;
 
     async function init(){
@@ -37,6 +39,8 @@ export default function Container(){
                 await getData(['-d', '--limit', '0', '-i', selected])
             )
         )
+
+        setDaysData(JSON.parse(res));
 
         console.log(JSON.parse(res))
 
