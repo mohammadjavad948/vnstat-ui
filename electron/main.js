@@ -45,6 +45,7 @@ const createWindow = () => {
         minHeight: 400,
         minWidth: 600,
         frame: false,
+        show: false,
         title: 'vnstat-ui'
     });
 
