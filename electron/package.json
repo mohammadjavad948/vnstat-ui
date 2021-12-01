@@ -1,8 +1,8 @@
 {
-  "name": "electron",
-  "productName": "electron",
+  "name": "vnstat",
+  "productName": "vnstat",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "vnstat ui",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
@@ -25,7 +25,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "electron"
+            "name": "vnstat"
           }
         },
         {
